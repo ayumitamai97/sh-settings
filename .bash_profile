@@ -31,14 +31,12 @@ eval "$(nodenv init -)"
 
 # bash completion
 source /usr/local/Cellar/git/2.24.1/etc/bash_completion.d/git-completion.bash
-PS1="\[\033[35m\]\u:\t \W $\[\033[0m\]"
+export PS1="\n\[\033[35m\]\w\[\033[36m\]\$(parse_git_branch)\[\033[00m\] 🧬 "
 GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 export JAVA_HOME="/usr/libexec/java_home -v 1.8"
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
