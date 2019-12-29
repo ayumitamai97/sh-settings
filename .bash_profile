@@ -6,10 +6,11 @@ export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/bin/heroku:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/Cellar/r/3.6.1_1/bin:$PATH"
 export PATH="/usr/local/Cellar/git/2.24.1/bin/:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
 
 export EDITOR="vim"
 export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
@@ -26,6 +27,7 @@ export RSTUDIO_WHICH_R="/usr/local/Cellar/r/3.6.0_2/bin/r"
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(nodenv init -)"
 
 # bash completion
 source /usr/local/Cellar/git/2.24.1/etc/bash_completion.d/git-completion.bash
