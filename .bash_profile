@@ -12,12 +12,11 @@ export PATH="/usr/local/Cellar/r/3.6.1_1/bin:$PATH"
 export PATH="/usr/local/Cellar/git/2.24.1/bin/:$PATH"
 
 export EDITOR="vim"
-eval "$(direnv hook bash)"
 export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export HISTTIMEFORMAT="%y/%m/%d %T "
 export HISTFILE="$HOME/.bash_history"
-export __INTELLIJ_COMMAND_HISTFILE__="$HOME/.bash_history"
+export HISTSIZE=2000
 export PROMPT_COMMAND="history -a; history -c; history -r"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
