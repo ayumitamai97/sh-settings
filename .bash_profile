@@ -11,6 +11,7 @@ export PATH="/usr/local/Cellar/r/3.6.1_1/bin:$PATH"
 export PATH="/usr/local/Cellar/git/2.24.1/bin/:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export EDITOR="vim"
 export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
@@ -31,7 +32,7 @@ eval "$(nodenv init -)"
 
 # bash completion
 source /usr/local/Cellar/git/2.24.1/etc/bash_completion.d/git-completion.bash
-export PS1="\n\[\033[35m\]\w\[\033[36m\]\$(parse_git_branch)\[\033[00m\] 🧬 "
+export PS1="\n\[\033[35m\]\w\[\033[36m\]\$(parse_git_branch)\[\033[00m\] 🧬"
 GIT_PS1_SHOWDIRTYSTATE=true
 
 parse_git_branch() {
