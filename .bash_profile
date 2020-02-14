@@ -28,7 +28,7 @@ eval "$(nodenv init -)"
 
 # bash completion
 source /usr/local/Cellar/git/2.24.1/etc/bash_completion.d/git-completion.bash
-export PS1="\n\[\033[35m\]\w\[\033[36m\]\$(parse_git_branch)\[\033[00m\] 🧬"
+export PS1="\n\[\033[35m\]\w\[\033[36m\]\$(parse_git_branch)\[\033[00m\] : "
 GIT_PS1_SHOWDIRTYSTATE=true
 
 parse_git_branch() {
