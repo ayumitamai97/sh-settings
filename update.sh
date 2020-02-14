@@ -1,2 +1,4 @@
-cp ~/.bash_profile ~/env-settings/sh-settings/.bash_profile
-cp ~/.bashrc ~/env-settings/sh-settings/.bashrc
+cp ~/.bash_profile ~/dotfiles/.bash_profile
+cp ~/.bashrc ~/dotfiles/.bashrc
+cp ~/.vimrc ~/dotfiles/
+cp ~/.gvimrc ~/dotfiles/
