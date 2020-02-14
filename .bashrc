@@ -5,3 +5,7 @@ alias ging='cd ~/s/g'
 alias h='history'
 alias pip='pip3'
 alias python='python3'
+
+# Control-w でスラッシュを区切り文字とする
+stty werase undef
+bind '"\C-w": unix-filename-rubout'
