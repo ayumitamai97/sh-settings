@@ -14,11 +14,24 @@ set nobackup
 " vim の矩形選択で文字が無くても右へ進める
 set virtualedit=block
 " 挿入モードでバックスペースで削除できるようにする
-set backspace=indent,eol,start
+" set backspace=indent,eol,start
 " 全角文字専用の設定
 set ambiwidth=double
 " wildmenuオプションを有効(vimバーからファイルを選択できる)
 set wildmenu
+" 行を折り返さない
+set nowrap
+
+" デフォルトのウインドウサイズ
+set lines=56
+set columns=205
+" ウインドウ分割の方向
+set splitbelow
+set splitright
+" Vimでターミナルをエミュレートするときのサイズ
+set termwinsize=20x0
+" Vimでターミナルをエミュレートするときの実行コマンド
+let &shell='/bin/bash --login'
 
 "----------------------------------------
 " 検索
@@ -36,18 +49,16 @@ set hlsearch
 hi Search ctermbg=DarkGray
 hi Search ctermfg=White
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 "----------------------------------------
 " 表示設定
 "----------------------------------------
-" 現在の行をハイライト
 set cursorline
-hi CursorLine cterm=NONE ctermbg=Black
+hi Normal ctermbg=233
+hi CursorLine cterm=NONE ctermbg=236
+hi Comment cterm=NONE
+hi Directory ctermfg=Cyan
 " 行番号にアンダーライン引かない
 hi CursorLineNr cterm=NONE
-" コメントの色を灰色
-hi Comment ctermfg=Gray
 
 " エラーメッセージの表示時にビープを鳴らさない
 set noerrorbells
@@ -70,7 +81,7 @@ set list
 set listchars=tab:^\ ,trail:~
 " コマンドラインの履歴を10000件保存する
 set history=10000
-" 入力モードでTabキー押下時に半角スペースを挿入
+" Tabキーを押した時にタブ文字ではなく半角スペースを挿入
 set expandtab
 " インデント幅
 set shiftwidth=2
@@ -78,20 +89,10 @@ set shiftwidth=2
 set softtabstop=2
 " ファイル内にあるタブ文字の表示幅
 set tabstop=2
-" ツールバーを非表示にする
-set guioptions-=T
-" yでコピーした時にクリップボードに入る
-set guioptions+=a
-" メニューバーを非表示にする
-set guioptions-=m
-" 右スクロールバーを非表示
-set guioptions+=R
 " 対応する括弧を強調表示
 set showmatch
 " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
-" スワップファイルを作成しない
-set noswapfile
 " 検索にマッチした行以外を折りたたむ(フォールドする)機能
 set nofoldenable
 " タイトルを表示
@@ -116,12 +117,15 @@ augroup source-vimrc
   autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
 augroup END
 
+" 保存時に行末のスペースを削除
+autocmd BufWritePre * :%s/\s\+$//ge
+
 " auto comment off
-" augroup auto_comment_off
-"   autocmd!
-"   autocmd BufEnter * setlocal formatoptions-=r
-"   autocmd BufEnter * setlocal formatoptions-=o
-" augroup END
+augroup auto_comment_off
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=r
+  autocmd BufEnter * setlocal formatoptions-=o
+augroup END
 
 " HTML/XML閉じタグ自動補完
 augroup MyXML
@@ -143,6 +147,27 @@ if has("autocmd")
   augroup END
 endif
 
-" Slimシンタックスハイライト
+" Commands, abbreviations
+command Rp let @+ = join([expand("%"), line(".")], ":")
+command Fp let @+ = expand("%:p")
+command Cdc lcd %:p:h " 今開いているファイルのディレクトリにlcdする
+cnoreabbrev cdc Cdc
+command Phil cd ~/phil
+cnoreabbrev phil Phil
+command Ging cd ~/s/g | e .
+cnoreabbrev ging Ging
+command Rmself call delete(expand('%')) | Ex | echo 'Removed file'
+cnoreabbrev rmself Rmself
+
+" Ruby gems commands
+let TermRspec = 'ter++noclose bundle exec rspec'
+command RspecFile execute join([TermRspec, expand('%')])
+cnoreabbrev rspf RspecFile
+command RspecCase execute join([TermRspec, join([expand('%'), line('.')], ':')])
+cnoreabbrev rspc RspecCase
+command Rubo ter++noclose bundle exec rubocop -a
+cnoreabbrev rubo Rubo
+
+" Slim syntax highlights
 execute pathogen#infect()
 filetype plugin indent on
