@@ -1,4 +1,5 @@
 source "$HOME/.bashrc"
+source "$HOME/.env"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
