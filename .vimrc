@@ -22,6 +22,8 @@ set wildmenu
 " 行を折り返さない
 set nowrap
 
+set autoread
+
 " デフォルトのウインドウサイズ
 set lines=56
 set columns=205
