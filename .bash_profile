@@ -18,8 +18,13 @@ export HISTTIMEFORMAT="%y/%m/%d %T "
 export HISTFILE="$HOME/.bash_history"
 export HISTSIZE=20000
 export PROMPT_COMMAND="history -a; history -c; history -r"
+
+# For compilers to find readline:
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+# For pkg-config to find readline:
+export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
 
 # ld: library not found for -lssl
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig
