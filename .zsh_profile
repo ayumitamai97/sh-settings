@@ -1,0 +1,22 @@
+source "$HOME/.zshrc"
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export JAVA_HOME="/usr/libexec/java_home -v 1.8"
+export EDITOR="vim"
+export HISTTIMEFORMAT="%y/%m/%d %T "
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=20000
+export PROMPT_COMMAND="history -a; history -c; history -r"
+
+GIT_PS1_SHOWDIRTYSTATE=false
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=false
+GIT_PS1_SHOWUPSTREAM=auto
+
+
