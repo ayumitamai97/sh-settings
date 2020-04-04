@@ -16,4 +16,4 @@ if [ -f ${HOME}/.zsh/git-completion.zsh ]; then
         zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
 fi
 source '/usr/local/etc/bash_completion.d/git-prompt.sh'
-setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)") \$ '
+setopt PROMPT_SUBST ; PS1='%F{magenta}%~%F{cyan}$(__git_ps1 " (%s)") %f\$ '
