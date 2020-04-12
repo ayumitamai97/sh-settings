@@ -9,6 +9,10 @@ set guioptions+=R
 
 set guifont=Monaco:h11
 
+" デフォルトのウインドウサイズ
+set lines=56
+set columns=205
+
 hi CursorLine guifg=NONE guibg=#333333
 hi Search guibg=DarkGray
 hi Search guifg=White

@@ -24,9 +24,6 @@ set nowrap
 
 set autoread
 
-" デフォルトのウインドウサイズ
-set lines=56
-set columns=205
 " ウインドウ分割の方向
 set splitbelow
 set splitright
