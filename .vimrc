@@ -30,7 +30,7 @@ set splitright
 " Vimでターミナルをエミュレートするときのサイズ
 set termwinsize=20x0
 " Vimでターミナルをエミュレートするときの実行コマンド
-let &shell='/bin/bash --login'
+let &shell=$SHELL." --login"
 
 "----------------------------------------
 " 検索
@@ -153,8 +153,6 @@ command Cdc lcd %:p:h " 今開いているファイルのディレクトリにlc
 cnoreabbrev cdc Cdc
 command Phil cd ~/phil
 cnoreabbrev phil Phil
-command Ging cd ~/s/g | e .
-cnoreabbrev ging Ging
 command Rmself call delete(expand('%')) | Ex | echo 'Removed file'
 cnoreabbrev rmself Rmself
 

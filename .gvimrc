@@ -7,7 +7,8 @@ set guioptions-=m
 " 右スクロールバーを非表示
 set guioptions+=R
 
-set guifont=Monaco:h11
+set guifont=Monaco:h13
+set linespace=2
 
 " デフォルトのウインドウサイズ
 set lines=56
