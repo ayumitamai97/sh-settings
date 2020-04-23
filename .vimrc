@@ -168,3 +168,14 @@ cnoreabbrev rubo Rubo
 " Slim syntax highlights
 execute pathogen#infect()
 filetype plugin indent on
+
+call plug#begin('~/.vim/plugged')
+
+" Language Server
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+call plug#end()
