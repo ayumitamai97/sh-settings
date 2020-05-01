@@ -1,6 +1,6 @@
 " まだ整理必要...
 syntax on
-colorscheme vim-framer-syntax
+colorscheme themer-tamai
 
 " Thanks https://qiita.com/iwaseasahi/items/0b2da68269397906c14c
 set t_Co=256
@@ -179,3 +179,5 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
+
+let g:lsp_diagnostics_echo_cursor = 1
