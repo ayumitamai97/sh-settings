@@ -17,6 +17,7 @@ set columns=205
 hi CursorLine guifg=NONE guibg=#333333
 hi Search guibg=DarkGray
 hi Search guifg=White
+hi SignColumn ctermbg=NONE
 
 let g:terminal_ansi_colors = [
   \ "#0C0C0C", "#EE92D5", "#71F449", "#FFFA52",
