@@ -183,10 +183,12 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
 let g:lsp_diagnostics_echo_cursor = 1
+let g:user_emmet_leader_key='<C-Z>'
 
 " TextEdit might fail if hidden is not set.
 set hidden

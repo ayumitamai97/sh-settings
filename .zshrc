@@ -20,3 +20,9 @@ setopt PROMPT_SUBST ; PS1='%F{magenta}%~%F{cyan}$(__git_ps1 " (%s)") %f\$ '
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tamai.ayumi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tamai.ayumi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tamai.ayumi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tamai.ayumi/google-cloud-sdk/completion.zsh.inc'; fi
