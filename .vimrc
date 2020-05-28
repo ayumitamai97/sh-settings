@@ -32,6 +32,43 @@ set termwinsize=20x0
 " Vimでターミナルをエミュレートするときの実行コマンド
 let &shell=$SHELL." --login"
 
+if has('nvim')
+  " exitフックを指定して:terminalを開く
+  function! s:termopen_wrapper(on_exit) abort
+    call termopen($SHELL, {'on_exit': function(a:on_exit)})
+  endfunction
+
+  " terminalの終了時にバッファを消すフック
+  function! s:onTermExit(job_id, code, event) dict
+    " Process Exitが表示されたその後cr打つとバッファが無くなるので
+    " それと同じようにする
+    call feedkeys("\<CR>")
+  endfun
+
+  " 水平分割でexit時に自動でcloseする行数sizeのターミナルバッファ表示
+  function! TermHelper(...) abort
+    let h_or_v = get(a:, 1, 'h') "デフォルトは水平分割
+    let size = get(a:, 2, 15) "デフォルトは高さ(or幅)15のウィンドウ
+
+    if h_or_v == 'h'
+      "topleft new | call s:termopen_wrapper('s:onTermExit')
+      botright new | Eterminal
+      execute 'resize ' . size
+    else
+      "vertical botright new | call s:termopen_wrapper('s:onTermExit')
+      vertical botright new | Eterminal
+      execute 'vertical resize ' . size
+    endif
+  endfun
+
+  " 水平ウィンドウ分割してターミナル表示 引数はwindowの行数指定(Horizontal terminal)
+  command! -count=20 Hterminal :call TermHelper('h', <count>)
+  " 垂直ウィンドウ分割してターミナル表示 引数はwindowの行数指定(Vertical terminal)
+  command! -count=80 Vterminal :call TermHelper('v', <count>)
+  " ウィンドウ分割なしでターミナル表示(Extended Terminal)
+  command! Eterminal :call s:termopen_wrapper('s:onTermExit') | startinsert
+endif
+
 "----------------------------------------
 " 検索
 "----------------------------------------
@@ -104,7 +141,7 @@ set title
 " 行番号の表示
 set number
 " ヤンクでクリップボードにコピー
-set clipboard+=unnamed,autoselect
+set clipboard+=unnamed
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " F1 (help) をunmap
@@ -171,6 +208,10 @@ command RspecCase execute join([TermRspec, join([expand('%'), line('.')], ':')])
 cnoreabbrev rspc RspecCase
 command Rubo ter++noclose bundle exec rubocop -a
 cnoreabbrev rubo Rubo
+command Eslint ter++noclose yarn run eslint --fix
+cnoreabbrev eslint Eslint
+command Stylelint ter++noclose yarn run stylelint --fix
+cnoreabbrev stylelint Stylelint
 
 " Slim syntax highlights
 execute pathogen#infect()
@@ -184,11 +225,23 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 call plug#end()
 
 let g:lsp_diagnostics_echo_cursor = 1
 let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_settings = {
+\    'html' : {
+\        'quote_char': "'",
+\    },
+\}
 
 " TextEdit might fail if hidden is not set.
 set hidden
