@@ -27,8 +27,6 @@ set autoread
 " ウインドウ分割の方向
 set splitbelow
 set splitright
-" Vimでターミナルをエミュレートするときのサイズ
-set termwinsize=20x0
 " Vimでターミナルをエミュレートするときの実行コマンド
 let &shell=$SHELL." --login"
 
@@ -67,6 +65,9 @@ if has('nvim')
   command! -count=80 Vterminal :call TermHelper('v', <count>)
   " ウィンドウ分割なしでターミナル表示(Extended Terminal)
   command! Eterminal :call s:termopen_wrapper('s:onTermExit') | startinsert
+else
+  " Vimでターミナルをエミュレートするときのサイズ
+  set termwinsize=20x0
 endif
 
 "----------------------------------------
@@ -213,9 +214,11 @@ cnoreabbrev eslint Eslint
 command Stylelint ter++noclose yarn run stylelint --fix
 cnoreabbrev stylelint Stylelint
 
-" Slim syntax highlights
-execute pathogen#infect()
-filetype plugin indent on
+if has('vim')
+  " Slim syntax highlights
+  execute pathogen#infect()
+  filetype plugin indent on
+endif
 
 call plug#begin('~/.vim/plugged')
 
