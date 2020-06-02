@@ -1,4 +1,3 @@
-source "$HOME/.zshrc"
 source "$HOME/.env"
 
 export PATH="/usr/local/bin:$PATH"
@@ -6,9 +5,6 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.nodenv/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
 export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"

@@ -1,14 +1,26 @@
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export XDG_CONFIG_HOME=$HOME/.config
+
 alias ls='ls -FGlA'
 alias mv='mv -i'
 alias rm='rm -i'
 alias h='history -E 1'
 alias pip='pip3'
 alias python='python3'
+if command -v pbcopy; then
+	:
+else
+	alias pbcopy='xsel --clipboard --input'
+fi
 
 # git completion for zsh
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -U compinit
-compinit -u
+if command -v brew; then
+	fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+	autoload -U compinit
+	compinit -u
+fi
 
 # customize prompt
 # autoload -Uz colors colors
