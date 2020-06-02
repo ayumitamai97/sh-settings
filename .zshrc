@@ -15,7 +15,12 @@ compinit -u
 if [ -f ${HOME}/.zsh/git-completion.zsh ]; then
         zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
 fi
-source '/usr/local/etc/bash_completion.d/git-prompt.sh'
+
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+        source '/usr/local/etc/bash_completion.d/git-prompt.sh'
+elif [ -f /etc/bash_completion.d/git-prompt ]; then
+        source '/etc/bash_completion.d/git-prompt'
+fi
 setopt PROMPT_SUBST ; PS1='%F{magenta}%~%F{cyan}$(__git_ps1 " (%s)") %f\$ '
 
 eval "$(rbenv init -)"
