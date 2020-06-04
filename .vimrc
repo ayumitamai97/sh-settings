@@ -229,6 +229,8 @@ Plug 'mattn/emmet-vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 else
   Plug 'Shougo/defx.nvim'
   Plug 'Shougo/denite.nvim'
@@ -320,6 +322,8 @@ function! s:defx_my_settings() abort
   \ defx#do_action('move')
   nnoremap <silent><buffer><expr> p
   \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> h
+  \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> l
   \ defx#do_action('open')
   nnoremap <silent><buffer><expr> P
