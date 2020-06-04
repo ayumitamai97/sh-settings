@@ -45,3 +45,5 @@ if [ -f '/Users/tamai.ayumi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tam
 if [ -f '/Users/tamai.ayumi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tamai.ayumi/google-cloud-sdk/completion.zsh.inc'; fi
 
 function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
