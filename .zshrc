@@ -1,4 +1,5 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
+if [ -d $HOME/.rbenv/shims ]; then export PATH="$HOME/.rbenv/shims:$PATH"; fi
 export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
@@ -34,7 +35,7 @@ if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
 elif [ -f /etc/bash_completion.d/git-prompt ]; then
         source '/etc/bash_completion.d/git-prompt'
 fi
-setopt PROMPT_SUBST ; PS1='%F{magenta}%~%F{cyan}$(__git_ps1 " (%s)") %f\$ '
+setopt PROMPT_SUBST ; PS1='%F{magenta}%~%F{cyan}$(__git_ps1 " (%s)") %f'
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
