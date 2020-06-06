@@ -141,7 +141,9 @@ set title
 " 行番号の表示
 set number
 " ヤンクでクリップボードにコピー
-set clipboard+=unnamed
+" set clipboard+=unnamed
+set clipboard=unnamedplus
+
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " F1 (help) をunmap
