@@ -46,4 +46,7 @@ if [ -f '/Users/tamai.ayumi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Use
 
 function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 
+# fzfのkey bindingとEmacs風のkey bindingとの共存
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
