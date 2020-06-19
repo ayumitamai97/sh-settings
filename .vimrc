@@ -226,6 +226,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier'
+
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -244,7 +246,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_settings = {
 \    'html' : {
-\        'quote_char': "'",
+\        'quote_char': '"',
 \    },
 \}
 
@@ -320,8 +322,6 @@ function! s:defx_my_settings() abort
   \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
   \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> h
   \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> l
