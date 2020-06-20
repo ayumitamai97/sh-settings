@@ -1,6 +1,5 @@
 " まだ整理必要...
 syntax on
-colorscheme themer-tamai
 
 " Thanks https://qiita.com/iwaseasahi/items/0b2da68269397906c14c
 set t_Co=256
@@ -66,12 +65,13 @@ if has('nvim')
   " ウィンドウ分割なしでターミナル表示(Extended Terminal)
   command! Eterminal :call s:termopen_wrapper('s:onTermExit') | startinsert
 else
-  " Vimでターミナルをエミュレートするときのサイズ
   set termwinsize=20x0
 endif
 
 if has('gui_vimr')
   source ~/.vim/colors/themer-tamai.vim
+else
+  colorscheme themer-tamai
 endif
 
 "----------------------------------------
@@ -94,12 +94,7 @@ hi Search ctermfg=White
 " 表示設定
 "----------------------------------------
 set cursorline
-hi Normal ctermbg=233
 hi CursorLine cterm=NONE ctermbg=236
-hi Comment cterm=NONE
-hi Directory ctermfg=Cyan
-" 行番号にアンダーライン引かない
-hi CursorLineNr cterm=NONE
 
 " 行番号左のスペースの色
 hi SignColumn ctermbg=NONE
@@ -203,22 +198,22 @@ cnoreabbrev cdc Cdc
 command Rmself call delete(expand('%')) | Ex | echo 'Removed file'
 cnoreabbrev rmself Rmself
 
+" command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
 " Ruby gems commands
-let TermRspec = 'ter++noclose bundle exec rspec'
-command RspecFile execute join([TermRspec, expand('%')])
-cnoreabbrev rspf RspecFile
-command RspecCase execute join([TermRspec, join([expand('%'), line('.')], ':')])
-cnoreabbrev rspc RspecCase
-command Rubo ter++noclose bundle exec rubocop -a
-cnoreabbrev rubo Rubo
-command Eslint ter++noclose yarn run eslint --fix
-cnoreabbrev eslint Eslint
-command Stylelint ter++noclose yarn run stylelint --fix
-cnoreabbrev stylelint Stylelint
-
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
 if has('vim')
+  let TermRspec = 'ter++noclose bundle exec rspec'
+  command RspecFile execute join([TermRspec, expand('%')])
+  cnoreabbrev rspf RspecFile
+  command RspecCase execute join([TermRspec, join([expand('%'), line('.')], ':')])
+  cnoreabbrev rspc RspecCase
+  command Rubo ter++noclose bundle exec rubocop -a
+  cnoreabbrev rubo Rubo
+  command Eslint ter++noclose yarn run eslint --fix
+  cnoreabbrev eslint Eslint
+  command Stylelint ter++noclose yarn run stylelint --fix
+  cnoreabbrev stylelint Stylelint
+
   " Slim syntax highlights
   execute pathogen#infect()
   filetype plugin indent on
@@ -230,7 +225,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier'
 
@@ -292,42 +287,19 @@ function! s:check_back_space() abort
 endfunction
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
 
 " defx
-" Find files in parent directory with Denite
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
-  " Define mappings
   nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
+  \ defx#do_action('open_tree', 'toggle')
   nnoremap <silent><buffer><expr> h
   \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> l
@@ -342,19 +314,10 @@ function! s:defx_my_settings() abort
   \ defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> N
   \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-  \ defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> C
-  \ defx#do_action('toggle_columns',
-  \                'mark:indent:icon:filename:type:size:time')
   nnoremap <silent><buffer><expr> d
   \ defx#do_action('remove')
   nnoremap <silent><buffer><expr> r
   \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> !
-  \ defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> x
-  \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> yy
   \ defx#do_action('yank_path')
   nnoremap <silent><buffer><expr> ~
@@ -369,10 +332,6 @@ function! s:defx_my_settings() abort
   \ line('.') == line('$') ? 'gg' : 'j'
   nnoremap <silent><buffer><expr> k
   \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
   nnoremap <silent><buffer><expr> cd
   \ defx#do_action('change_vim_cwd')
 endfunction
