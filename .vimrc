@@ -70,6 +70,10 @@ else
   set termwinsize=20x0
 endif
 
+if has('gui_vimr')
+  source ~/.vim/colors/themer-tamai.vim
+endif
+
 "----------------------------------------
 " 検索
 "----------------------------------------
@@ -211,6 +215,8 @@ command Eslint ter++noclose yarn run eslint --fix
 cnoreabbrev eslint Eslint
 command Stylelint ter++noclose yarn run stylelint --fix
 cnoreabbrev stylelint Stylelint
+
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 if has('vim')
   " Slim syntax highlights

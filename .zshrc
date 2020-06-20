@@ -9,6 +9,7 @@ alias rm='rm -i'
 alias h='history -E 1'
 alias pip='pip3'
 alias python='python3'
+alias vim='nvim'
 if command -v pbcopy; then
 	:
 else
