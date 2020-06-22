@@ -69,9 +69,9 @@ else
 endif
 
 if has('gui_vimr')
-  source ~/.vim/colors/themer-tamai.vim
+  source ~/.vim/colors/cyber-wolf.vim
 else
-  colorscheme themer-tamai
+  colorscheme cyber-wolf
 endif
 
 "----------------------------------------
@@ -141,9 +141,7 @@ set title
 " 行番号の表示
 set number
 " ヤンクでクリップボードにコピー
-" set clipboard+=unnamed
-set clipboard=unnamedplus
-
+set clipboard+=unnamed
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " F1 (help) をunmap
@@ -227,7 +225,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier'
 
