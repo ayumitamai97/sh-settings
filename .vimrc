@@ -6,6 +6,16 @@ set t_Co=256
 set backupskip=/tmp/*,/private/tmp/*
 set number
 
+" 矢印キーを使わない
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
 " ファイルを上書きする前にバックアップを作ることを無効化
@@ -141,7 +151,8 @@ set title
 " 行番号の表示
 set number
 " ヤンクでクリップボードにコピー
-set clipboard+=unnamed
+" set clipboard+=unnamed " For MacOS
+set clipboard+=unnamedplus " For Ubuntu
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " F1 (help) をunmap
