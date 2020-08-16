@@ -43,6 +43,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/emmet-vim'
 " Plug 'prettier/vim-prettier'
 " Plug 'sheerun/vim-polyglot'
+Plug 'HerringtonDarkholme/yats.vim'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
