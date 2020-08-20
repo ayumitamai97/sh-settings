@@ -6,8 +6,7 @@ set expandtab
 set shiftwidth=2
 " タブキー押下時に挿入される文字幅を指定
 set softtabstop=2
-" set clipboard+=unnamed " For MacOS
-set clipboard+=unnamedplus " For Ubuntu
+set clipboard+=unnamed,unnamedplus
 " ヤンクでクリップボードにコピー
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>

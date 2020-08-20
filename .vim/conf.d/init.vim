@@ -39,7 +39,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 " Plug 'prettier/vim-prettier'
 " Plug 'sheerun/vim-polyglot'
@@ -67,6 +67,7 @@ runtime! ./search.vim
 runtime! ./window.vim
 runtime! ./input.vim
 runtime! ./terminal.vim
+runtime! ./commands.vim
 runtime! ./defx.vim
 runtime! ./coc.vim
 runtime! ./emmet-vim.vim
