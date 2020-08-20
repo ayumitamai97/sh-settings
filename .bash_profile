@@ -1,3 +1,5 @@
+# メンテしていない
+
 source "$HOME/.bashrc"
 source "$HOME/.env"
 

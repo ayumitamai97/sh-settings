@@ -1,3 +1,5 @@
+# メンテしていない
+
 alias ls='ls -FGlA'
 alias mv='mv -i'
 alias rm='rm -i'
