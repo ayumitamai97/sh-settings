@@ -63,10 +63,9 @@ set runtimepath+=$HOME/.vim/conf.d
 
 runtime! ./nmap.vim
 runtime! ./appearances.vim
-runtime! ./search.vim
-runtime! ./window.vim
+" runtime! ./search.vim
+" runtime! ./window.vim
 runtime! ./input.vim
-runtime! ./terminal.vim
 runtime! ./commands.vim
 runtime! ./defx.vim
 runtime! ./coc.vim
