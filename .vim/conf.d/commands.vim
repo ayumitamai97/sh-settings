@@ -1,9 +1,8 @@
-" Commands, abbreviations
-command Rp let @+ = join([expand("%"), line(".")], ":")
-command Fp let @+ = expand("%:p")
-command Cdc lcd %:p:h " 今開いているファイルのディレクトリにlcdする
+command! Rp let @+ = join([expand("%"), line(".")], ":")
+command! Fp let @+ = expand("%:p")
+command! Cdc lcd %:p:h
 cnoreabbrev cdc Cdc
-" Vimでターミナルをエミュレートするときの実行コマンド
+
 let &shell=$SHELL." --login"
 
 if has('nvim')
@@ -45,9 +44,9 @@ else
   set termwinsize=20x0
 endif
 
-" コマンドラインの履歴を10000件保存する
 set history=10000
 
+" TODO: nvim
 if has('vim')
   let TermRspec = 'ter++noclose bundle exec rspec'
   command RspecFile execute join([TermRspec, expand('%')])

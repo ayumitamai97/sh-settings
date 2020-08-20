@@ -1,3 +1,11 @@
+if has('gui_running')
+  source ~/.vim/colors/cyber-wolf.vim
+else
+  colorscheme cyber-wolf
+endif
+
+syntax on
+
 set cursorline
 set title
 set number
@@ -10,6 +18,7 @@ set listchars=tab:^\ ,trail:~
 set showmatch matchtime=1
 set ambiwidth=double
 set nowrap
+set autoread
 
 hi CursorLine cterm=NONE ctermbg=236
 hi LineNr cterm=NONE ctermbg=NONE
