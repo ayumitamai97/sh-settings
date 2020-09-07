@@ -11,11 +11,15 @@ Plug 'mattn/emmet-vim'
 " Plug 'sheerun/vim-polyglot'
 Plug 'HerringtonDarkholme/yats.vim'
 
+Plug 'junegunn/vim-easy-align'
+
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 else
   Plug 'Shougo/defx.nvim'
   Plug 'Shougo/denite.nvim'
@@ -25,3 +29,4 @@ endif
 
 call plug#end()
 
+xmap ga <Plug>(EasyAlign)
