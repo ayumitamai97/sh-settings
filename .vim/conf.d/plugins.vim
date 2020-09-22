@@ -13,12 +13,14 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'junegunn/vim-easy-align'
 
+Plug 'ryanoasis/vim-devicons'
+
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'ryanoasis/vim-devicons'
+  " Plug 'ryanoasis/vim-devicons'
   Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 else
   Plug 'Shougo/defx.nvim'

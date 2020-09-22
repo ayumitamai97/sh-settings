@@ -10,6 +10,8 @@ runtime! ./commands.vim
 
 runtime! ./plugins.vim
 runtime! ./plugins/defx.vim
+runtime! ./plugins/chadtree.vim
 runtime! ./plugins/coc.vim
 runtime! ./plugins/emmet-vim.vim
+runtime! ./plugins/vim-lsp.vim
 runtime! ./plugins/vim-lsp-settings.vim
