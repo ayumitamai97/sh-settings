@@ -19,6 +19,7 @@ set showmatch matchtime=1
 set ambiwidth=double
 set nowrap
 set autoread
+set termguicolors
 
 hi CursorLine cterm=NONE ctermbg=236
 hi LineNr cterm=NONE ctermbg=NONE

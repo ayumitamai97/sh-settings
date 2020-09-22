@@ -8,8 +8,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'junegunn/vim-easy-align'
 
-" Plug 'ryanoasis/vim-devicons'
-
 Plug 'jparise/vim-graphql'
 
 if has('nvim')
