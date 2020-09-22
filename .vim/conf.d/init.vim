@@ -10,5 +10,6 @@ runtime! ./commands.vim
 
 runtime! ./plugins.vim
 runtime! ./plugins/chadtree.vim
+runtime! ./plugins/nerdtree.vim
 runtime! ./plugins/coc.vim
 runtime! ./plugins/emmet-vim.vim

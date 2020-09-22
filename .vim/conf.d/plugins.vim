@@ -10,6 +10,9 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'jparise/vim-graphql'
 
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree'
+
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
