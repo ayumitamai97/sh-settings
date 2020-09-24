@@ -16,7 +16,7 @@ set display=lastline
 set list
 set listchars=tab:^\ ,trail:~
 set showmatch matchtime=1
-set ambiwidth=double
+set ambiwidth=single
 set nowrap
 set autoread
 set termguicolors
