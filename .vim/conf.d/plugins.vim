@@ -1,17 +1,14 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mattn/emmet-vim'
-" Plug 'prettier/vim-prettier'
-" Plug 'sheerun/vim-polyglot'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree'
 
 Plug 'junegunn/vim-easy-align'
 
-Plug 'jparise/vim-graphql'
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
+Plug 'mattn/emmet-vim'
+" Plug 'prettier/vim-prettier'
 
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -25,5 +22,3 @@ else
 endif
 
 call plug#end()
-
-xmap ga <Plug>(EasyAlign)
