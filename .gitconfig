@@ -8,7 +8,7 @@
 	clean = git-lfs clean -- %f
 
 [core]
-    pager = delta
+    pager = delta --side-by-side --line-numbers
 
 [delta]
     plus-color = "#012800"
