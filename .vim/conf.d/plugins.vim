@@ -8,6 +8,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-rails'
+Plug 'codota/tabnine-vim'
 " Plug 'prettier/vim-prettier'
 
 if has('nvim')
