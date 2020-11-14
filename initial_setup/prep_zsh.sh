@@ -1,2 +1,4 @@
-echo 'export ZDOTDIR=$HOME/dotfiles/.zsh\n\nsource $ZDOTDIR/.zshenv' > $HOME/.zshenv
-echo '[include]\n  path = ~/dotfiles/.gitconfig' > $HOME/.gitconfig
+echo 'export ZDOTDIR=$HOME/dotfiles/.zsh
+source $ZDOTDIR/.zshenv' > $HOME/.zshenv
+echo '[include]
+  path = ~/dotfiles/.gitconfig' > $HOME/.gitconfig
