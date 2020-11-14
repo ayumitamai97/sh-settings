@@ -1,6 +1,8 @@
-command! Rp let @+ = join([expand("%"), line(".")], ":")
-command! Fp let @+ = expand("%:p")
+command! Relp let @+ = join([expand("%"), line(".")], ":")
+command! Fulp let @+ = expand("%:p")
 command! Cdc lcd %:p:h
+cnoreabbrev rp Relp
+cnoreabbrev fp Fulp
 cnoreabbrev cdc Cdc
 
 let &shell=$SHELL." --login"
@@ -36,17 +38,16 @@ if has('nvim')
 
   " 水平ウィンドウ分割してターミナル表示 引数はwindowの行数指定(Horizontal terminal)
   command! -count=20 Hterminal :call TermHelper('h', <count>)
+  cnoreabbrev hter Hterminal
   " 垂直ウィンドウ分割してターミナル表示 引数はwindowの行数指定(Vertical terminal)
   command! -count=80 Vterminal :call TermHelper('v', <count>)
-  " ウィンドウ分割なしでターミナル表示(Extended Terminal)
-  command! Eterminal :call s:termopen_wrapper('s:onTermExit') | startinsert
+  cnoreabbrev vter Vterminal
 else
   set termwinsize=20x0
 endif
 
 set history=10000
 
-" TODO: nvim
 if has('vim')
   let TermRspec = 'ter++noclose bundle exec rspec'
   command RspecFile execute join([TermRspec, expand('%')])
@@ -59,4 +60,10 @@ if has('vim')
   cnoreabbrev eslint Eslint
   command Stylelint ter++noclose yarn run stylelint --fix
   cnoreabbrev stylelint Stylelint
+" elseif has('nvim')
+"   let TermRspec = 'hter bundle exec rspec'
+"   command RspecFile execute join([TermRspec, expand('%')])
+"   cnoreabbrev rspf RspecFile
+"   command RspecCase execute join([TermRspec, join([expand('%'), line('.')], ':')])
+"   cnoreabbrev rspc RspecCase
 end
