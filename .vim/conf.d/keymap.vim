@@ -1,5 +1,4 @@
 nmap <F1> :echo<CR>
-nmap . :echo<CR>
 
 map <Up> <Nop>
 map <Down> <Nop>
