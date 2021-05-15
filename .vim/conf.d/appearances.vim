@@ -1,7 +1,11 @@
 if has('gui_running')
-  source ~/.vim/colors/cyber-wolf.vim
+  if has('nvim')
+    source ~/.config/nvim/colors/constellation-theme.vim
+  else
+    source ~/.vim/colors/constellation-theme.vim
+  endif
 else
-  colorscheme cyber-wolf
+  colorscheme constellation-theme
 endif
 
 syntax on

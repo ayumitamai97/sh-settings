@@ -12,7 +12,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 export JAVA_HOME='/usr/libexec/java_home -v 1.8'
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export HISTTIMEFORMAT="%y/%m/%d %T "
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=20000

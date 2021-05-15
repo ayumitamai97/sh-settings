@@ -9,3 +9,6 @@ let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
 let g:NERDTreeWinSize = 50
+
+map <leader>t :NERDTree<cr>
+map <leader>r :NERDTreeFind<cr>

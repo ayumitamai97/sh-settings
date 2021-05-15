@@ -3,6 +3,9 @@ if [ -d $HOME/.rbenv/shims ]; then export PATH="$HOME/.rbenv/shims:$PATH"; fi
 export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
 
 alias ls='ls -FGlA'
 alias mv='mv -i'
