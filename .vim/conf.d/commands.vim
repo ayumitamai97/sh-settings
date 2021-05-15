@@ -1,5 +1,5 @@
-command! Relp let @+ = join([expand('%'), line('.')], ':')
-command! Fulp let @+ = expand('%:p')
+command Relp let @+ = join([expand('%'), line('.')], ':')
+command Fulp let @+ = expand('%:p')
 cnoreabbrev rp Relp
 cnoreabbrev fp Fulp
 

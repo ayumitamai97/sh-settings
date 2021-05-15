@@ -28,3 +28,4 @@ set termguicolors
 hi CursorLine cterm=NONE ctermbg=236
 hi LineNr cterm=NONE ctermbg=NONE
 hi CursorLineNr cterm=NONE ctermbg=236
+hi Search ctermfg=White ctermbg=DarkGray
