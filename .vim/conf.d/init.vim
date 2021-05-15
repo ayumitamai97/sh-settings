@@ -14,3 +14,6 @@ runtime! ./plugins/nerdtree.vim
 runtime! ./plugins/coc.vim
 runtime! ./plugins/emmet-vim.vim
 runtime! ./plugins/vim-easy-align.vim
+runtime! ./plugins/vim-polyglot.vue
+runtime! ./plugins/fzf.vim
+runtime! ./plugins/neoterm.vim

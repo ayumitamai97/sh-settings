@@ -8,3 +8,6 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+" Escape from terminal insert mode + window command
+tnoremap <C-w> <C-\><C-n><C-w>
